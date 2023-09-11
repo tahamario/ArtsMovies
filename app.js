@@ -15,8 +15,9 @@ app.use(express.static("public"));
 const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://127.0.0.1:27017/bookstore", { useNewUrlParser: true, useUnifiedTopology: true }
-  // "mongodb+srv://tmoudnib:colocolo2015@cluster0.tzdpxrr.mongodb.net/all-data?retryWrites=true&w=majority"
+mongoose.connect(
+  // "mongodb://127.0.0.1:27017/bookstore", { useNewUrlParser: true, useUnifiedTopology: true }
+  "mongodb+srv://tmoudnib:colocolo2015@cluster0.tzdpxrr.mongodb.net/artsmovies?retryWrites=true&w=majority"
 ).then((result) => {
     app.listen(process.env.PORT  || port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
