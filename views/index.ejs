@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+
+<html lang="ar">
+
+<%- include('./partials/head.ejs') %>
+
+    <body id="body">
+
+        <%- include('./partials/header.ejs') %>
+
+            <% const name="Taha Mario" %>
+                <h1>
+                    Made with &#10084;&#65039; by <%= name %>
+                </h1>
+                <br />
+                <br />
+
+                <main id="main">
+                    <section>
+                        <%- include('./trendingArticles.ejs') %>
+                    </section>
+                    <section>
+                        <%- include('./trendingFilms.ejs') %>
+                    </section>
+
+                </main>
+
+                <%- include('./partials/footer.ejs') %>
+
+    </body>
+
+</html>

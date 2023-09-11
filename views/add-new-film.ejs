@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<html lang="ar">
+
+<%- include('./partials/head.ejs') %>
+
+<body id="body">
+    <%- include('./partials/header.ejs') %>
+
+    <main id="main">
+
+        <section>
+            <h1>
+                Add new film
+            </h1>
+
+            <form action="/all-films" method="POST">
+                <label for="title">Film title:</label>
+                <input type="text" id="title" name="title" required>
+
+
+                <label for="releaseDate">Film release date:</label>
+                <input type="date" id="releaseDate" name="releaseDate" required>
+
+
+
+                <label for="type">Film Type:</label>
+                <input type="text" id="type" name="type" required/>
+
+
+                <button class="create">Create</button>
+            </form>
+
+
+
+        </section>
+
+
+
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

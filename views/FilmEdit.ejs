@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/header.ejs') %>
+            <main id="main">
+
+                <section>
+                    <h1>
+                        Edit film
+                    </h1>
+
+                    <form action="/all-films/<%= film._id %>" method="POST">
+                        <label for="title">Film title:</label>
+                        <input type="text" id="title" name="title" value="<%= film.title %>" required>
+
+
+                        <label for="releaseDate">Film release date:</label>
+                        <input type="date" id="releaseDate" name="releaseDate" value="<%= film.releaseDate.toISOString().split('T')[0]  %>" required>
+
+
+
+                        <label for="type">Film Type:</label>
+                        <input type="text" id="type" name="type" value="<%= film.type %>" required />
+
+
+                        <button class="create">Edit</button>
+                    </form>
+                </section>
+
+            </main>
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
+</html>

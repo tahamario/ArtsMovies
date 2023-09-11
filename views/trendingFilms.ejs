@@ -1,0 +1,21 @@
+<h1>
+    Trending Films &#128293;
+</h1>
+
+<div class="parent-of-articles">
+    <% if(trendingFilms.length> 0){ %>
+        <% trendingFilms.forEach(trending=> { %>
+            <article>
+                <h2>
+                    <%= trending.title %> 
+                </h2>
+                <p>
+                    <%= trending.type %> | <%= trending.releaseDate.toISOString().split('T')[0] %>
+                        <a class="btn" href="/film-details/<%= trending._id %>">show more</a>
+                </p>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <p>there is nothing to display ... </p>
+    <% } %>
+</div>

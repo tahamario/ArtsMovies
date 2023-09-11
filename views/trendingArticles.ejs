@@ -1,0 +1,21 @@
+<h1>
+    Trending Articles &#128293;
+</h1>
+
+<div class="parent-of-articles">
+    <% if(trendings.length> 0){ %>
+        <% trendings.forEach(trending=> { %>
+            <article>
+                <h2>
+                    <%= trending.title %>
+                </h2>
+                <p>
+                    <%= trending.body %>
+                        <a class="btn" href="/article-details/<%= trending._id %>">show more</a>
+                </p>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <p>there is nothing to display ... </p>
+    <% } %>
+</div>

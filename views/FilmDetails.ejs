@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/header.ejs') %>
+            <main>
+                <h1 style="margin-bottom: 20px;">
+                    <%= film.title %>
+                </h1>
+                <p style="margin-bottom: 20px;text-align: center;">
+                    <strong>Film type </strong> : <%= film.type %> <br /> <br />
+                        <strong>Date </strong> :<%= film.releaseDate.toISOString().split('T')[0] %>
+                </p>
+                <div style="display: flex; flex-direction: row; justify-content: center;">
+                    <button id="delte-btn" class="create" style="display: inline; width: 10%;"
+                        data-linkid="<%= film._id %>">Delete</button>
+
+                    <a class="create" style="display: inline; background-color: #4CAF50;
+                    border: 1px solid #000;text-decoration: none;" 
+                    href="/film-edit/<%= film._id %>">Edit</a>
+                </div>
+
+            </main>
+            <%- include('./partials/footer.ejs') %>
+                <script>
+                    // const btnelement = document.querySelector(".create")
+                    // const articleId = btnelement.getAttribute("data-linkid");
+                    const dataElmnt = document.getElementById("delte-btn");
+                    const articleId = dataElmnt.getAttribute("data-linkid");
+                    dataElmnt.onclick = () => {
+                        fetch(`/all-articles/${articleId}`, { method: "DELETE" })
+                            .then((response) => response.json())
+                            .then((data) => window.location.href = data.mylink)
+                            .catch((err) => {
+                                console.log(err);
+                            });
+                    }
+                </script>
+    </body>
+
+</html>
