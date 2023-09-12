@@ -69,6 +69,8 @@
     display: flex;
     justify-content: space-around;
     padding-bottom: 20px;
+    flex-wrap: wrap;
+    padding-left: 0;
   }
   
   .parent li a {
@@ -118,13 +120,13 @@
   li {
     list-style-type: none;
     font-size: 18px;
+    margin: 6px 0;
   }
   
   h1 {
     text-align: center;
     padding: 10px 0;
-  
-    width: 40%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
   
@@ -456,7 +458,6 @@ input {
 
 textarea {
   height: 170px !important;
-  width: 370px !important;
   font-size: 20px;
 }
 

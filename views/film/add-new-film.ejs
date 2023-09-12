@@ -3,10 +3,10 @@
 
 <html lang="ar">
 
-<%- include('./partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
 <body id="body">
-    <%- include('./partials/header.ejs') %>
+    <%- include('../partials/header.ejs') %>
 
     <main id="main">
 
@@ -15,7 +15,7 @@
                 Add new film
             </h1>
 
-            <form action="/all-films" method="POST">
+            <form action="/film" method="POST">
                 <label for="title">Film title:</label>
                 <input type="text" id="title" name="title" required>
 
@@ -40,7 +40,7 @@
 
     </main>
 
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 
 </body>
 
