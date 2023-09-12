@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
     <body>
-        <%- include('./partials/header.ejs') %>
+        <%- include('../partials/header.ejs') %>
             <main>
                 <h1 style="margin-bottom: 20px;">
                     <%= article.title %>
@@ -11,19 +11,25 @@
                 <p style="margin-bottom: 20px;text-align: center;">
                     <%= article.body %>
                 </p>
-                <button id="delte-btn" class="create" style="margin-left: 30%;"
-                    data-linkid="<%= article._id %>">Delete</button>
+                <div style="display: flex; flex-direction: row; justify-content: center;">
+                    <button id="delte-btn" class="create" style="display: inline;"
+                        data-linkid="<%= article._id %>">Delete</button>
+
+                    <a class="create" style="display: inline; background-color: #4CAF50;
+                    border: 1px solid #000;text-decoration: none;" href="/article-edit/<%= article._id %>">Edit</a>
+                </div>
+
             </main>
-            <%- include('./partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
                 <script>
                     // const btnelement = document.querySelector(".create")
                     // const articleId = btnelement.getAttribute("data-linkid");
                     const dataElmnt = document.getElementById("delte-btn");
                     const articleId = dataElmnt.getAttribute("data-linkid");
                     dataElmnt.onclick = () => {
-                        fetch(`/all-articles/${articleId}`, { method: "DELETE" })
+                        fetch(`/article/${articleId}`, { method: "DELETE" })
                             .then((response) => response.json())
-                            .then((data) => window.location.href = data.mylink )
+                            .then((data) => window.location.href = data.mylink)
                             .catch((err) => {
                                 console.log(err);
                             });

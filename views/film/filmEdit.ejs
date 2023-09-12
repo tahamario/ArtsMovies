@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
     <body>
-        <%- include('./partials/header.ejs') %>
+        <%- include('../partials/header.ejs') %>
             <main id="main">
 
                 <section>
@@ -11,7 +11,9 @@
                         Edit film
                     </h1>
 
-                    <form action="/all-films/<%= film._id %>" method="POST">
+                    <form action="/film-edit/" method="POST">
+                        <input type="hidden" name="id" value="<%= film._id %>" />
+                        
                         <label for="title">Film title:</label>
                         <input type="text" id="title" name="title" value="<%= film.title %>" required>
 
@@ -25,12 +27,13 @@
                         <input type="text" id="type" name="type" value="<%= film.type %>" required />
 
 
-                        <button class="create">Edit</button>
+                        <button class="create" style="background-color: #4CAF50;
+                        border: 1px solid #000;">Update</button>
                     </form>
                 </section>
 
             </main>
-            <%- include('./partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
     </body>
 
 </html>

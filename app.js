@@ -2,9 +2,12 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+//hlmet for web cors securties
 const helmet = require("helmet");
+//call for controllers
 const articleController = require('./controllers/articleController');
 const filmController = require('./controllers/filmController');
+const indexController = require('./controllers/indexController');
 
 //this code to mention which template engine you will use
 app.set("view engine", "ejs");
@@ -45,28 +48,36 @@ liveReloadServer.server.once("connection", () => {
 // End for auto refresh
 
 
-// send data to mongo db
-app.get("/", articleController.article_get);
+// index routes
+app.get("/", indexController.index_get);
 
-app.post("/all-articles", articleController.article_post);
+app.get("/home", indexController.index_index_get);
 
-app.get("/all-articles", articleController.article_index_get);
-
+//article routes
 app.get("/add-new-article", articleController.article_addNewArticle_get);
 
 app.get("/article-details/:id", articleController.article_articleDetails_get);
 
-app.delete("/all-articles/:id", articleController.article_delete); 
+app.get("/article-edit/:id", articleController.article_articleEdit_get);
 
-app.post("/all-films", filmController.film_post);
+app.post("/article", articleController.article_post);
 
-app.post("/all-films/:id", filmController.film_put);
+app.post("/article-edit", articleController.article_articleEdit_post); 
 
+app.delete("/article/:id", articleController.article_delete);
+
+//film routes
 app.get("/add-new-film", filmController.film_addNewFilm_get);
 
 app.get("/film-details/:id", filmController.film_filmDetails_get);
 
 app.get("/film-edit/:id", filmController.film_filmEdit_get);
+
+app.post("/film", filmController.film_post);
+
+app.post("/film-edit", filmController.film_filmEdit_post);
+
+app.delete("/film/:id", filmController.film_delete); 
 
 //helmet secure your website by adding http cors
 app.use(helmet()); 
