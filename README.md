@@ -37,6 +37,6 @@ To run the project locally, follow these steps:
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE). Feel free to use, modify, and distribute the source code for your own purposes. If you have any improvements or additions, contributions are always welcome!
+This project is open-source and available under the MIT License. Feel free to use, modify, and distribute the source code for your own purposes. If you have any improvements or additions, contributions are always welcome!
 
 This project made with love by me TahaMario
